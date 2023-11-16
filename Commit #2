@@ -1,0 +1,31 @@
+class VirtualPet:
+    def __init__(self, name):
+        self.name = name
+        self.age = 0
+
+    def display_status(self):
+        print(f"{self.name}'s Status:")
+        print(f"Age: {self.age} days")
+
+    def LoadDishwasher(self):
+        self.age += .1
+
+    def DoLaundry(self):
+        self.age += .1
+
+# Main game loop
+pet_name = input("Name your pet: ")
+pet = VirtualPet(pet_name)
+
+while True:
+    pet.display_status()
+    print("1. Load Dishwasher")
+    print("2. Do Laundry")
+    choice = input("Choose an action (1/2): ")
+
+    if choice == "1":
+        pet.feed()
+
+    if pet.age >= 1:
+        print("Your pet has grown to maturity.")
+        break
