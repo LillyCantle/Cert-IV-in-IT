@@ -1,0 +1,29 @@
+class GameObject:
+    def __init__(self, name):
+        self.name = name
+        self.health = 0
+
+    def display_status(self):
+        print(f"{self.name}'s Status:")
+        print(f"Health: {self.health} %")
+
+# Main game loop
+game_object_name = input("Name your object: ")
+game_object = GameObject(game_object_name)
+
+while True:
+    game_object.display_status()
+    print("1. Do Nothing (Pass a day)")
+    print("2. Custom Action")
+    choice = input("Choose an action (1/2): ")
+
+    if choice == "1":
+        game_object.age += 0.1  # Simulate the passage of a day
+    elif choice == "2":
+        custom_action_name = input("Enter the name of the custom action: ")
+        print(f"You completed the action: {custom_action_name}")
+        game_object.health += 0.2  # You can adjust the growth rate for custom actions
+
+    if game_object.health >= 1:
+        print(f"{game_object.name} has completed.")
+        break
