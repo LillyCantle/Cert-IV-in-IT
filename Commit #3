@@ -1,0 +1,41 @@
+class VirtualPet:
+    def __init__(self, name):
+        self.name = name
+        self.age = 0
+
+    def display_status(self):
+        print(f"{self.name}'s Status:")
+        print(f"Age: {self.age} days")
+
+    def load_dishwasher(self):
+        self.age += 0.1
+
+    def do_laundry(self):
+        self.age += 0.1
+
+    def custom_task(self, task_name):
+        print(f"You completed the task: {task_name}")
+        self.age += 0.2  # You can adjust the growth rate for custom tasks
+
+# Main game loop
+pet_name = input("Name your pet: ")
+pet = VirtualPet(pet_name)
+
+while True:
+    pet.display_status()
+    print("1. Load Dishwasher")
+    print("2. Do Laundry")
+    print("3. Custom Task")
+    choice = input("Choose an action (1/2/3): ")
+
+    if choice == "1":
+        pet.load_dishwasher()
+    elif choice == "2":
+        pet.do_laundry()
+    elif choice == "3":
+        custom_task_name = input("Enter the name of the custom task: ")
+        pet.custom_task(custom_task_name)
+
+    if pet.age >= 1:
+        print("Your pet has grown to maturity.")
+        break
